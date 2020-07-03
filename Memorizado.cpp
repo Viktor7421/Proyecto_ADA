@@ -190,11 +190,11 @@ pair<vector<pair <int, int>>, float> MinMatching(vector<int> A, vector<int> B){
 
 
 int main( ) {
-    vector<int> A = {1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0};
-    vector<int> B = {1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0};
+    vector<int> A = {0,0,0,0,0,0,1,1,0,1,1,0,1,1,1};
+    vector<int> B = {1,0,1,1,0,0,1,1,0,0,0,0,1,1,0};
     vector<pair<int,int>> DivisionesA;
     vector<pair<int,int>> DivisionesB;
-    int p = 20;
+    int p = A.size();
 
     //--------------------------------------------------------//
 
@@ -235,5 +235,6 @@ int main( ) {
     for(auto i = X.first.begin(); i != X.first.end(); i++){
         cout << '(' << (*i).first << ',' << (*i).second << ")\n";
     }
+    cout << X.second << "\n";
     return 0;
 }
