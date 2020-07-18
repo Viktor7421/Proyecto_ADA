@@ -1,0 +1,3 @@
+/home/furvictor/Proyecto_ADA/CMakeFiles/rebuild_cache.dir
+/home/furvictor/Proyecto_ADA/CMakeFiles/Proyecto_ADA.dir
+/home/furvictor/Proyecto_ADA/CMakeFiles/edit_cache.dir
