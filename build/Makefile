@@ -110,6 +110,46 @@ depend:
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+#=============================================================================
+# Target rules for targets named Proyecto_ADA
+
+# Build rule for target.
+Proyecto_ADA: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Proyecto_ADA
+.PHONY : Proyecto_ADA
+
+# fast build rule for target.
+Proyecto_ADA/fast:
+	$(MAKE) -f CMakeFiles/Proyecto_ADA.dir/build.make CMakeFiles/Proyecto_ADA.dir/build
+.PHONY : Proyecto_ADA/fast
+
+main.o: main.cpp.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/Proyecto_ADA.dir/build.make CMakeFiles/Proyecto_ADA.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/Proyecto_ADA.dir/build.make CMakeFiles/Proyecto_ADA.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/Proyecto_ADA.dir/build.make CMakeFiles/Proyecto_ADA.dir/main.cpp.s
+.PHONY : main.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -117,7 +157,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... Proyecto_ADA"
 	@echo "... edit_cache"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 
