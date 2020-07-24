@@ -39,5 +39,7 @@ vector<vector<int>> To01Scale(Mat IMAGEN, int val)
         IMAGEN_01.push_back(temp);
         temp.clear();
     }
+
+    IMAGEN.release();
     return IMAGEN_01;
 }

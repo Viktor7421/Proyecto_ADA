@@ -42,7 +42,7 @@ pair<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>, float> Min(
 }
 
 
-pair<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>, float> MinMatching(vector<int> A, vector<int> B)
+pair<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>, float> PromMinMatching(vector<int> A, vector<int> B)
 {
 
     //--------------------------------------------------------//
@@ -176,8 +176,8 @@ pair<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>, float> MinM
             for(int l = 0; l < i; l++){
                 float pesoA = Sumatoria(DivisionesA,i-l,i+1);
                 auto OPT = M[i-l-1][j-1];
-                if(peso1.second > OPT.second+pesoA/pesoB){
-                    peso1.second = OPT.second+pesoA/pesoB;
+                if(peso1.second > (OPT.second+pesoA/pesoB)/float(OPT.first.size()+1)){
+                    peso1.second = (OPT.second+pesoA/pesoB)/float(OPT.first.size()+1);
                     peso1.first =  OPT.first;
                     index_1 = l;
                 }
@@ -209,8 +209,8 @@ pair<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>, float> MinM
             for(int l = 0; l < j; l++){
                 float pesoB = Sumatoria(DivisionesB,j-l,j+1);
                 auto OPT = M[i-1][j-l-1];
-                if(peso2.second > OPT.second+pesoA/pesoB){
-                    peso2.second = OPT.second+pesoA/pesoB;
+                if(peso2.second > (OPT.second+pesoA/pesoB)/float(OPT.first.size()+1)){
+                    peso2.second = (OPT.second+pesoA/pesoB)/float(OPT.first.size()+1);
                     peso2.first =  OPT.first;
                     index_2 = l;
                 }

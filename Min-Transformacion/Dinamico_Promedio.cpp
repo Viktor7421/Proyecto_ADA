@@ -1,11 +1,11 @@
 #include "iostream"
 #include <utility> 
 #include <vector> 
-#include "../Min-Matching/Dinamico.cpp"
+#include "../Min-Matching/Dinamico_Promedio.cpp"
 using namespace std;
 
 
-pair<vector<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>>, float> MinTransformacion(vector<vector<int>> A, vector<vector<int>> B)
+pair<vector<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>>, float> PromMinTransformacion(vector<vector<int>> A, vector<vector<int>> B)
 {
     vector<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>> matchings;
     float peso = 0;
@@ -13,7 +13,7 @@ pair<vector<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>>, flo
     {
         for (int i = 0; i < A.size(); i++)
         {
-            auto matching = MinMatching(A[i],B[i]);
+            auto matching = PromMinMatching(A[i],B[i]);
             matchings.push_back(matching.first);
             peso += matching.second;
             matching.first.clear();

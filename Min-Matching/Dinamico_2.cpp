@@ -60,7 +60,15 @@ pair<vector<pair <int, int>>, float> MinMatching(vector<int> A, vector<int> B){
     vector<pair<int,int>> DivisionesA = Divisiones(A);
     vector<pair<int,int>> DivisionesB = Divisiones(B);
 
-    if(DivisionesA.size() == 1 && DivisionesB.size() == 1){
+    if(DivisionesA.empty() || DivisionesB.empty())
+    {
+        vector<pair <int, int>> X;
+        return {X,0};
+    }
+    
+    //--------------------------------------------------------//
+
+    else if(DivisionesA.size() == 1 && DivisionesB.size() == 1){
         float pesoA = (DivisionesA[0].second-DivisionesA[0].first+1);
         float pesoB = (DivisionesB[0].second-DivisionesB[0].first+1);
         float peso = pesoA/pesoB;

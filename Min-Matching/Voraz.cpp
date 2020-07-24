@@ -8,6 +8,19 @@ pair<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>, float> MinM
     vector<pair<int,int>> DivisionesA;
     vector<pair<int,int>> DivisionesB;
     
+    if(DivisionesB.empty())
+    {
+        vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>> X;
+        return {X,0};
+    }
+    else if(DivisionesA.empty())
+    {
+        vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>> X;
+        vector<pair<int,int>> temp;
+        X.push_back({temp,DivisionesB});
+        return {X,0};
+    }
+
     for (int i = 0; i < p; i++){
         if(A[i] == 1){
             int start = i;
