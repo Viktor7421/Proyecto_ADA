@@ -40,6 +40,7 @@ vector<vector<int>> To01Scale(Mat IMAGEN, int val)
         temp.clear();
     }
 
+    imwrite("dragonite_grises.jpg", IMAGEN);
     IMAGEN.release();
     return IMAGEN_01;
 }

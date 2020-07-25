@@ -1,13 +1,43 @@
 #include "iostream"
 #include <utility> 
 #include <vector> 
+#include <limits.h>
+#include <float.h>
 using namespace std;
 
+float Sumatoria(vector<pair<int,int>> X){
+    int Suma = 0;
+    for(int i = 0; i < X.size(); i++){
+        Suma = Suma + (X[i].second-X[i].first+1);
+    }
+    return Suma;
+}
+
+float Sumatoria(vector<pair<int,int>> X, int min, int max){
+    int Suma = 0;
+    for(int i = min; i < max; i++){
+        Suma = Suma + (X[i].second-X[i].first+1);
+    }
+    return Suma;
+}
+
+vector<pair<int,int>> Divisiones(vector<int> X){
+    vector<pair<int,int>> Divisiones;
+    for (int i = 0; i < X.size(); i++){
+        if(X[i] == 1){
+            int start = i;
+            while ( X[i+1] == 1 ){ i++;}
+            Divisiones.push_back({start,i});
+        }
+    }
+    return Divisiones;
+}
+
 // pair<pair<vector<pair <int, int>>, pair <int, int>>, float>
-pair<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>, float> MinMatching(vector<int> A, vector<int> B, int p){
-    vector<pair<int,int>> DivisionesA;
-    vector<pair<int,int>> DivisionesB;
-    
+pair<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>, float> MinMatching(vector<int> A, vector<int> B){
+    vector<pair<int,int>> DivisionesA = Divisiones(A);
+    vector<pair<int,int>> DivisionesB = Divisiones(B);
+
     if(DivisionesB.empty())
     {
         vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>> X;
@@ -21,22 +51,6 @@ pair<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>, float> MinM
         return {X,0};
     }
 
-    for (int i = 0; i < p; i++){
-        if(A[i] == 1){
-            int start = i;
-            while ( A[i+1] == 1 ){ i++;}
-            DivisionesA.push_back({start,i});
-        }
-    }
-
-    for (int i = 0; i < p; i++){
-        if(B[i] == 1){
-            int start = i;
-            while ( B[i+1] == 1 ){ i++;}
-            DivisionesB.push_back({start,i});
-        }
-    }
-
     float peso = 0;
     vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>> X;
     //vector<pair <int, int>> X;
@@ -45,7 +59,6 @@ pair<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>, float> MinM
 
     while (DivisionesA.size() > DivisionesB.size())
     {
-        //X.push_back({DivisionesA.size()-1,DivisionesB.size()-1});
 
         pair <int, int> Ai = DivisionesA.back();
         tempA.push_back(Ai);
@@ -71,7 +84,6 @@ pair<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>, float> MinM
     
     while (DivisionesA.size() < DivisionesB.size())
     {
-        //X.push_back({DivisionesA.size()-1,DivisionesB.size()-1});
 
         pair <int, int> Bi = DivisionesB.back(); 
         tempB.push_back(Bi);
@@ -90,9 +102,8 @@ pair<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>, float> MinM
         }
     }
 
-    while(!DivisionesA.empty())
+    while(!DivisionesA.empty() || !DivisionesB.empty())
     {
-        //X.push_back({DivisionesA.size()-1,DivisionesB.size()-1});
         vector<pair <int, int>> tempA;
         vector<pair <int, int>> tempB;
 
@@ -106,13 +117,16 @@ pair<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>, float> MinM
         X.push_back({tempA,tempB});
     }
 
+    DivisionesA.clear();
+    DivisionesB.clear();
+
     return {X,peso};
 }
 
 /*int main( ) {
     vector<int> A = {1,0,1,1,1,0,1,1,0,1};
     vector<int> B = {0,0,1,1,0,0,1,1,0,0};
-    auto X = MinMatching(A,B,A.size());
+    auto X = MinMatching(A,B);
     for(auto i = X.first.begin(); i != X.first.end(); i++){
         cout << '[';
         for (auto j = (*i).first.begin(); j != (*i).first.end(); j++)

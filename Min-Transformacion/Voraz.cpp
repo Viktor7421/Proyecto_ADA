@@ -9,20 +9,24 @@ pair<vector<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>>, flo
 {
     vector<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>> matchings;
     float peso = 0;
-    for (int i = 0; i < A.size(); i++)
+    if(A.size() == B.size())
     {
-        auto matching = MinMatching(A[i],B[i],(A[i]).size());
-        matchings.push_back(matching.first);
-        peso += matching.second;
-    }
+        for (int i = 0; i < A.size(); i++)
+        {
+            auto matching = MinMatching(A[i],B[i]);
+            matchings.push_back(matching.first);
+            peso += matching.second;
+            matching.first.clear();
+        }
+    } 
 
     return {matchings, peso};
 }
 
-
-/*int main() {
-    vector<vector<int>> A = {{1,1,1,0,1,0,1,1,0,1},{1,0,1,1,1,0,1,1,0,1}};
-    vector<vector<int>> B = {{0,0,0,0,0,0,1,1,0,0},{0,0,1,1,0,0,1,1,0,0}};
+/*
+int main() {
+    vector<vector<int>> A = {{1,1,1,0,1,0,1,1,0,1},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0}};
+    vector<vector<int>> B = {{0,0,0,0,0,0,0,0,0,0},{0,0,1,1,0,0,1,1,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0},{0,0,0,0,0,0,0,0,0,0}};
     auto X = MinTransformacion(A,B);
     for(auto k = X.first.begin(); k != X.first.end(); k++){
         for(auto i = (*k).begin(); i != (*k).end(); i++){

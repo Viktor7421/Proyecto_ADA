@@ -49,6 +49,7 @@ pair<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>, float> Prom
 
     vector<pair<int,int>> DivisionesA = Divisiones(A);
     vector<pair<int,int>> DivisionesB = Divisiones(B);
+    float PESO_TOTAL = Sumatoria(DivisionesA)/Sumatoria(DivisionesB);
     
     if(DivisionesB.empty())
     {
@@ -176,8 +177,8 @@ pair<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>, float> Prom
             for(int l = 0; l < i; l++){
                 float pesoA = Sumatoria(DivisionesA,i-l,i+1);
                 auto OPT = M[i-l-1][j-1];
-                if(peso1.second > (OPT.second+pesoA/pesoB)/float(OPT.first.size()+1)){
-                    peso1.second = (OPT.second+pesoA/pesoB)/float(OPT.first.size()+1);
+                if(peso1.second > abs(OPT.second+pesoA/pesoB-PESO_TOTAL)){
+                    peso1.second = abs(OPT.second+pesoA/pesoB-PESO_TOTAL);
                     peso1.first =  OPT.first;
                     index_1 = l;
                 }
@@ -209,8 +210,8 @@ pair<vector<pair<vector<pair <int, int>>, vector<pair <int, int>>>>, float> Prom
             for(int l = 0; l < j; l++){
                 float pesoB = Sumatoria(DivisionesB,j-l,j+1);
                 auto OPT = M[i-1][j-l-1];
-                if(peso2.second > (OPT.second+pesoA/pesoB)/float(OPT.first.size()+1)){
-                    peso2.second = (OPT.second+pesoA/pesoB)/float(OPT.first.size()+1);
+                if(peso2.second > abs(OPT.second+pesoA/pesoB-PESO_TOTAL)){
+                    peso2.second = abs(OPT.second+pesoA/pesoB-PESO_TOTAL);
                     peso2.first =  OPT.first;
                     index_2 = l;
                 }

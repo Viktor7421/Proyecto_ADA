@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/furvictor/Proyecto_ADA/Min-Matching/Dinamico_Promedio.cpp
+/home/furvictor/Proyecto_ADA/Min-Matching/Voraz.cpp
 iostream
 /home/furvictor/Proyecto_ADA/Min-Matching/iostream
 utility
@@ -18,7 +18,7 @@ limits.h
 float.h
 -
 
-/home/furvictor/Proyecto_ADA/Min-Transformacion/Animacion-IMG.cpp
+/home/furvictor/Proyecto_ADA/Min-Transformacion/Animacion-IMG_Voraz.cpp
 iostream
 -
 vector
@@ -31,18 +31,8 @@ opencv2/highgui.hpp
 -
 Lectura-IMG.cpp
 /home/furvictor/Proyecto_ADA/Min-Transformacion/Lectura-IMG.cpp
-Dinamico_Promedio.cpp
-/home/furvictor/Proyecto_ADA/Min-Transformacion/Dinamico_Promedio.cpp
-
-/home/furvictor/Proyecto_ADA/Min-Transformacion/Dinamico_Promedio.cpp
-iostream
-/home/furvictor/Proyecto_ADA/Min-Transformacion/iostream
-utility
--
-vector
--
-../Min-Matching/Dinamico_Promedio.cpp
-/home/furvictor/Proyecto_ADA/Min-Matching/Dinamico_Promedio.cpp
+Voraz.cpp
+/home/furvictor/Proyecto_ADA/Min-Transformacion/Voraz.cpp
 
 /home/furvictor/Proyecto_ADA/Min-Transformacion/Lectura-IMG.cpp
 iostream
@@ -51,6 +41,16 @@ vector
 -
 opencv2/opencv.hpp
 -
+
+/home/furvictor/Proyecto_ADA/Min-Transformacion/Voraz.cpp
+iostream
+/home/furvictor/Proyecto_ADA/Min-Transformacion/iostream
+utility
+-
+vector
+-
+../Min-Matching/Voraz.cpp
+/home/furvictor/Proyecto_ADA/Min-Matching/Voraz.cpp
 
 /home/furvictor/Proyecto_ADA/main.cpp
 iostream
@@ -63,8 +63,8 @@ opencv2/opencv.hpp
 -
 opencv2/highgui.hpp
 -
-Min-Transformacion/Animacion-IMG.cpp
-/home/furvictor/Proyecto_ADA/Min-Transformacion/Animacion-IMG.cpp
+Min-Transformacion/Animacion-IMG_Voraz.cpp
+/home/furvictor/Proyecto_ADA/Min-Transformacion/Animacion-IMG_Voraz.cpp
 
 /usr/local/include/opencv4/opencv2/calib3d.hpp
 opencv2/core.hpp
